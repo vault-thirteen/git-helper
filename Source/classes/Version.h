@@ -6,19 +6,20 @@
 // "v1.23.456".
 //
 
-#ifndef GIT_HELPER_VERSION_H
-#define GIT_HELPER_VERSION_H
+#ifndef GH_VERSION_H
+#define GH_VERSION_H
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
+
 #include "../std.hpp"
 
 class Version
 {
 public:
-    static bool isAVersion(std::string text);
+    static bool isVersion(std::string text);
 
     // Constructor.
     explicit Version(std::string text)
@@ -183,7 +184,7 @@ private:
     int patch;
 };
 
-inline bool Version::isAVersion(std::string text)
+inline bool Version::isVersion(std::string text)
 {
     // The shortest version (e.g. "v0.0.0") has length of 6.
     if (text.size() < 6)
@@ -220,4 +221,4 @@ inline bool Version::isAVersion(std::string text)
     return true;
 }
 
-#endif //GIT_HELPER_VERSION_H
+#endif //GH_VERSION_H

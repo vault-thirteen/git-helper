@@ -68,7 +68,7 @@ std::vector<Version> read_versions(git_repository* repo, char sort_type)
     for (int i = 0; i < tag_names.count; i++)
     {
         std::string s = tag_names.strings[i];
-        if (Version::isAVersion(s))
+        if (Version::isVersion(s))
             versions.emplace_back(s);
     }
 
