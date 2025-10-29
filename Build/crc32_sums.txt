@@ -1,2 +1,2 @@
 CE490120 git2.dll
-727C1B4D git_helper.exe
+8345CA03 git_helper.exe
