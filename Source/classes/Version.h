@@ -66,39 +66,33 @@ public:
         {
             return true;
         }
-        else if (this->major > other.major)
+        if (this->major > other.major)
         {
             return false;
         }
-        else
+
+        // Major versions are equal.
+        if (this->minor < other.minor)
         {
-            // Major versions are equal.
-            if (this->minor < other.minor)
-            {
-                return true;
-            }
-            else if (this->minor > other.minor)
-            {
-                return false;
-            }
-            else
-            {
-                // Major and minor versions are equal.
-                if (this->patch < other.patch)
-                {
-                    return true;
-                }
-                else if (this->patch > other.patch)
-                {
-                    return false;
-                }
-                else
-                {
-                    // All versions are equal.
-                    return false;
-                }
-            }
+            return true;
         }
+        if (this->minor > other.minor)
+        {
+            return false;
+        }
+
+        // Major and minor versions are equal.
+        if (this->patch < other.patch)
+        {
+            return true;
+        }
+        if (this->patch > other.patch)
+        {
+            return false;
+        }
+
+        // All versions are equal.
+        return false;
     }
 
     bool operator>(const Version& other) const
@@ -107,39 +101,33 @@ public:
         {
             return true;
         }
-        else if (this->major < other.major)
+        if (this->major < other.major)
         {
             return false;
         }
-        else
+
+        // Major versions are equal.
+        if (this->minor > other.minor)
         {
-            // Major versions are equal.
-            if (this->minor > other.minor)
-            {
-                return true;
-            }
-            else if (this->minor < other.minor)
-            {
-                return false;
-            }
-            else
-            {
-                // Major and minor versions are equal.
-                if (this->patch > other.patch)
-                {
-                    return true;
-                }
-                else if (this->patch < other.patch)
-                {
-                    return false;
-                }
-                else
-                {
-                    // All versions are equal.
-                    return false;
-                }
-            }
+            return true;
         }
+        if (this->minor < other.minor)
+        {
+            return false;
+        }
+
+        // Major and minor versions are equal.
+        if (this->patch > other.patch)
+        {
+            return true;
+        }
+        if (this->patch < other.patch)
+        {
+            return false;
+        }
+
+        // All versions are equal.
+        return false;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Version& v)
