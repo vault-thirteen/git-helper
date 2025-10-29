@@ -11,21 +11,13 @@ bool is_number(const std::string& s)
 }
 std::string prettyUnixTime(git_time_t ts, int offsetMinutes)
 {
-    //TODO: Check.
     auto tp = std::chrono::time_point_cast<std::chrono::seconds>(std::chrono::system_clock::from_time_t(ts));
     std::stringstream ss;
     ss << std::format("{:%Y-%m-%d %H:%M:%S}", tp);
 
-    // Time zone.
-    int offsetHrs = offsetMinutes / 60;
-    if (offsetHrs > 0)
-    {
-        ss << " (UTC+" << offsetHrs << ")";
-    }
-    else
-    {
-        ss << " (UTC-" << offsetHrs << ")";
-    }
+    // Time zone is not used, while C++ can not create time with unknown time
+    // zone. By knowing only time offset we can not guess time zone name.
+    ss << " (UTC)";
 
     return ss.str();
 }
