@@ -1,0 +1,14 @@
+.idea
+cmake-build-debug
+cmake-build-release
+cmake-build-debug-visual-studio
+cmake-build-release-visual-studio
+*.exe
+.vs
+out
+CMakeSettings.json
+
+# Files of 'libgit2'.
+libgit2/bin
+libgit2/include
+libgit2/lib
