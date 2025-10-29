@@ -1,17 +1,24 @@
 cmake_minimum_required(VERSION 4.0)
-project(git_helper VERSION 0.1.0 DESCRIPTION "Git Helper" LANGUAGES CXX)
+project(git_helper VERSION 0.1.1 DESCRIPTION "Git Helper" LANGUAGES CXX)
 set_target_properties(PROPERTIES VERSION ${PROJECT_VERSION})
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} meta/version.rc
         actions.cpp
         actions.hpp
+        git.hpp
+        git.cpp
+        interaction.cpp
+        interaction.hpp
         main.cpp
         main.hpp
+        os.hpp
         std.cpp
         std.hpp
+        windows.cpp
+        windows.hpp
         classes/Version.h
-        version.rc)
+)
 
 add_library(libgit2 SHARED IMPORTED)
 set_target_properties(libgit2 PROPERTIES IMPORTED_IMPLIB "${CMAKE_SOURCE_DIR}/libgit2/lib/git2.lib")

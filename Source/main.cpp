@@ -1,7 +1,9 @@
-#include "main.hpp"
 #include <iostream>
+#include <string>
+
 #include "actions.hpp"
-#include "windows.h"
+#include "os.hpp"
+#include "windows.hpp"
 
 errno_t main(int argc, char** argv)
 {
@@ -23,19 +25,19 @@ errno_t main(int argc, char** argv)
 
     if (action == "tags")
     {
-        list_tags(inf);
+        action_list_tags(inf);
     }
     else if (action == "versions")
     {
-        list_versions(inf);
+        action_list_versions(inf);
     }
     else if (action == "lver")
     {
-        show_latest_version(inf);
+        action_show_latest_version(inf);
     }
     else if (action == "newpatch")
     {
-        add_new_patch_tag(inf);
+        action_add_new_patch_tag(inf);
     }
     else
     {
@@ -44,31 +46,4 @@ errno_t main(int argc, char** argv)
     }
 
     return APP_EXIT_CODE_ALL_CLEAR;
-}
-
-errno_t enable_console_colours()
-{
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hConsole == INVALID_HANDLE_VALUE)
-    {
-        std::cerr << "Error getting console handle" << std::endl;
-        return APP_EXIT_CODE_STDOUT_HANDLE;
-    }
-
-    DWORD dwMode;
-    if (!GetConsoleMode(hConsole, &dwMode))
-    {
-        std::cerr << "Error getting console mode" << std::endl;
-        return APP_EXIT_CODE_CONSOLE_MODE;
-    }
-
-    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-
-    if (!SetConsoleMode(hConsole, dwMode))
-    {
-        std::cerr << "Error setting console mode" << std::endl;
-        return APP_EXIT_CODE_CONSOLE_MODE;
-    }
-
-    return 0;
 }

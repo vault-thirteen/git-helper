@@ -43,7 +43,7 @@ public:
         }
 
         // Extract version data.
-        std::vector<std::string> numParts = splitString(text.substr(1), ".");
+        std::vector<std::string> numParts = split_string(text.substr(1), ".");
 
         if (numParts.size() != 3)
             throw std::invalid_argument("Version parts are missing: " + text);
@@ -206,7 +206,7 @@ inline bool Version::isAVersion(std::string text)
 
     // Extract version data.
     std::string nums = text.substr(1);
-    std::vector<std::string> numParts = splitString(nums, ".");
+    std::vector<std::string> numParts = split_string(nums, ".");
 
     if (numParts.size() != 3)
         return false;
