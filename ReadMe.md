@@ -78,7 +78,7 @@ This tool does not have its own strict versioning.
 
 This tool was built using following libraries.
 
-* **libgit2** version `1.9.1`  
+* **libgit2** version `1.9.2`  
   DLL Files: git2.dll.
 
 

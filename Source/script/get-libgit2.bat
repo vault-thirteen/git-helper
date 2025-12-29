@@ -6,7 +6,7 @@
 :: Settings.
 SET Repository=https://github.com/vault-thirteen/libgit2.git
 SET LibFolder=libgit2
-SET LibVersion=1.9.1
+SET LibVersion=1.9.2
 SET ScriptFolder=script
 
 :: Download the Code.
