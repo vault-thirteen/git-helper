@@ -46,7 +46,7 @@ List of required DLL files is described in [Version & Dependency](#section_4) se
 
 ## <a name="section_3">Usage</a>
 
-The program works in console mode and requires two (2) command line arguments:
+The program works in console mode and requires at least two (2) command line arguments:
 
 `<executable> <folder> <action>`
 
@@ -63,14 +63,20 @@ Available actions:
  - versions
  - lver
  - newpatch
+ - clone
 
 The `tags` action lists tag names.  
 The `versions` action lists versions.  
 The `lver` action shows latest version.  
-The `newpatch` action creates a new patch for the latest commit.
+The `newpatch` action creates a new patch for the latest commit.  
 
-**Usage Example**
+The `clone` action clones a remote repository into a local folder.   
+This action requires an additional argument after the action name:  
+`<executable> <folder> <action> <remote repository URL>`
+
+**Usage Examples**
 <pre>git_helper.exe "E:\my_repo" lver</pre>
+<pre>git_helper.exe . clone "https://example.org/some/repo.git</pre>
 
 ## <a name="section_4">Version & Dependency</a>
 

@@ -26,3 +26,11 @@ bool ask_to_proceed()
 
     return false;
 }
+void show_usage_A()
+{
+    std::cout << "Usage: <executable> <folder> <action>" << std::endl;
+}
+void show_usage_B()
+{
+    std::cout << "Usage: <executable> <folder> <action> <repository URL>" << std::endl;
+}

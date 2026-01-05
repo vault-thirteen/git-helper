@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.0)
-project(git_helper VERSION 0.1.2 DESCRIPTION "Git Helper" LANGUAGES CXX)
+project(git_helper VERSION 0.2.0 DESCRIPTION "Git Helper" LANGUAGES CXX)
 set_target_properties(PROPERTIES VERSION ${PROJECT_VERSION})
 set(CMAKE_CXX_STANDARD 20)
 

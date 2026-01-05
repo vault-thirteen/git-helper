@@ -1,2 +1,2 @@
 1712640 git2.dll
-278528 git_helper.exe
+279040 git_helper.exe
